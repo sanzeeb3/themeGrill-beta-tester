@@ -15,16 +15,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once plugin_dir_path( __FILE__ ) . '/class-BetaTesterSettingsPage.php';
+
 if ( ! defined( 'TG_BETA_TEST_GITHUB_REPO_OWNER' ) ) {
 	define( 'TG_BETA_TEST_GITHUB_REPO_OWNER', 'wpeverest' );
 }
 
 if ( ! defined( 'TG_BETA_TEST_PLUGIN_SLUG' ) ) {
-	define( 'TG_BETA_TEST_PLUGIN_SLUG', 'restaurantpress' );
+	define( 'TG_BETA_TEST_PLUGIN_SLUG', get_option( 'tgbt_plugin_field', 'user-registration') );
 }
 
 if ( ! defined( 'TG_BETA_TEST_PLUGIN_BASENAME' ) ) {
-	define( 'TG_BETA_TEST_PLUGIN_BASENAME', 'restaurantpress/restaurantpress.php' );
+	define( 'TG_BETA_TEST_PLUGIN_BASENAME', get_option( 'tgbt_plugin_field', 'user-registration' ).'/'.get_option('tgbt-plugin-field','user-registration' ).'.php' );
 }
 
 /**
